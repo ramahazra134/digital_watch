@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Digital Watch</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .watch-glow {
+            animation: glow 2.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                box-shadow:
+                    0 0 25px rgba(99, 102, 241, 0.25),
+                    0 0 60px rgba(168, 85, 247, 0.15);
+            }
+
+            to {
+                box-shadow:
+                    0 0 40px rgba(99, 102, 241, 0.45),
+                    0 0 90px rgba(168, 85, 247, 0.25);
+            }
+        }
+
+        .dot {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0.25;
+            }
+        }
+
+        .number {
+            text-shadow:
+                0 0 10px rgba(129, 140, 248, 0.8),
+                0 0 30px rgba(129, 140, 248, 0.4);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-slate-950 flex items-center justify-center px-4">
+
+    <!-- Background Glow -->
+    <div class="fixed top-10 left-10 w-72 h-72 bg-indigo-600/20 rounded-full blur-3xl"></div>
+    <div class="fixed bottom-10 right-10 w-72 h-72 bg-purple-600/20 rounded-full blur-3xl"></div>
+
+    <!-- Watch -->
+    <div
+        class="watch-glow relative w-full max-w-md
+        bg-white/10 backdrop-blur-2xl
+        border border-white/10
+        rounded-[35px]
+        p-7 sm:p-9
+        text-white"
+    >
+
+        <!-- Top Section -->
+        <div class="flex items-center justify-between mb-8">
+
+            <div>
+                <p class="text-xs uppercase tracking-[4px] text-indigo-300">
+                    Digital Watch
+                </p>
+
+                <h1 class="text-2xl font-bold mt-1">
+                    My Time
+                </h1>
+            </div>
+
+            <div
+                class="w-12 h-12 rounded-2xl
+                bg-indigo-500/20
+                flex items-center justify-center
+                border border-indigo-400/20"
+            >
+                <i class="fa-regular fa-clock text-xl text-indigo-300"></i>
+            </div>
+
+        </div>
+
+
+        <!-- Date -->
+        <div class="text-center mb-7">
+
+            <p
+                id="day"
+                class="text-sm text-slate-300 uppercase tracking-[4px]"
+            >
+                Sunday
+            </p>
+
+            <p
+                id="date"
+                class="text-slate-400 text-sm mt-2"
+            >
+                September 27, 2026
+            </p>
+
+        </div>
+
+
+       
+        <div class="flex items-center justify-center gap-2">
+
+            <!-- Hour -->
+            <div class="text-center">
+
+                <div
+                    id="hours"
+                    class="number text-5xl sm:text-6xl md:text-7xl
+                    font-black tracking-tight"
+                >
+                    00
+                </div>
+
+                <p class="text-[10px] text-slate-500 uppercase tracking-[3px] mt-2">
+                    Hours
+                </p>
+
+            </div>
+
+
+            <div
+                class="dot text-4xl sm:text-5xl font-bold text-indigo-400 pb-5"
+            >
+                :
+            </div>
+
+
+       
+            <div class="text-center">
+
+                <div
+                    id="minutes"
+                    class="number text-5xl sm:text-6xl md:text-7xl
+                    font-black tracking-tight"
+                >
+                    00
+                </div>
+
+                <p class="text-[10px] text-slate-500 uppercase tracking-[3px] mt-2">
+                    Minutes
+                </p>
+
+            </div>
+
+
+            <!-- Colon -->
+            <div
+                class="dot text-4xl sm:text-5xl font-bold text-indigo-400 pb-5"
+            >
+                :
+            </div>
+
+
+          
+            <div class="text-center">
+
+                <div
+                    id="seconds"
+                    class="number text-5xl sm:text-6xl md:text-7xl
+                    font-black tracking-tight"
+                >
+                    00
+                </div>
+
+                <p class="text-[10px] text-slate-500 uppercase tracking-[3px] mt-2">
+                    Seconds
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="flex justify-center mt-6">
+
+            <div
+                id="ampm"
+                class="px-5 py-2
+                rounded-full
+                bg-indigo-500/20
+                border border-indigo-400/20
+                text-indigo-300
+                text-xs font-bold
+                tracking-[3px]"
+            >
+                AM
+            </div>
+
+        </div>
+
+
+       
+        <div class="h-px bg-white/10 my-7"></div>
+
+
+    
+        <div class="flex items-center justify-between text-sm">
+
+            <div class="flex items-center gap-2 text-slate-400">
+
+                <span
+                    class="w-2 h-2 rounded-full
+                    bg-green-400
+                    shadow-[0_0_10px_#4ade80]"
+                ></span>
+
+                <span>Live Time</span>
+
+            </div>
+
+
+            <div
+                id="timezone"
+                class="text-slate-500 text-xs"
+            >
+                Local Time
+            </div>
+
+        </div>
+
+    </div>
+
+
+   
+    <script src="script.js"></script>
+
+</body>
+</html>
+
